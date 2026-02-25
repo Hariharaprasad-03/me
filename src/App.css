@@ -1,0 +1,302 @@
+/* ===== Portfolio Global Styles ===== */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove max-width constraint on root */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ===== Page transition animation ===== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Stagger children animation ===== */
+.stagger-in>* {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: staggerFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stagger-in>*:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.stagger-in>*:nth-child(2) {
+  animation-delay: 0.10s;
+}
+
+.stagger-in>*:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.stagger-in>*:nth-child(4) {
+  animation-delay: 0.20s;
+}
+
+.stagger-in>*:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.stagger-in>*:nth-child(6) {
+  animation-delay: 0.30s;
+}
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Fade-in on mount ===== */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Slide up animation ===== */
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Typing cursor blink ===== */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #ffb400;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===== Glassmorphism card ===== */
+.glass-card {
+  background: #ffffff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+.dark .glass-card {
+  background: rgba(26, 26, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+}
+
+/* ===== Glowing accent border ===== */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #ffb400, #ff8c00, #ffb400);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* ===== Floating animation ===== */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ===== Pulse ring for status indicator ===== */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #ffb400;
+  animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+/* ===== Gradient text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #ffb400 0%, #ff8c00 50%, #ffb400 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* ===== Custom scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb40050;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb400;
+}
+
+/* ===== Selection color ===== */
+::selection {
+  background: #ffb40040;
+  color: inherit;
+}
+
+/* ===== Skill bar animation ===== */
+.skill-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.dark .skill-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ffb400, #ff8c00);
+  transform-origin: left;
+  animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform: scaleX(0);
+}
+
+@keyframes fillBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ===== Tooltip ===== */
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-container .tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: #1f1f1f;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.dark .tooltip-container .tooltip {
+  background: #fff;
+  color: #1f1f1f;
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
