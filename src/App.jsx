@@ -69,6 +69,8 @@ function App() {
       </div>
     </Router >
   );
+  // route is fixed 
+
 }
 
 export default App;
