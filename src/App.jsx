@@ -51,7 +51,7 @@ function App() {
   }, [isDark]);
 
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-gray-700 dark:text-gray-300 transition-colors duration-500">
         {/* Theme toggle - floating button */}
         <button
@@ -67,7 +67,7 @@ function App() {
         <AnimatedRoutes />
         <MobileNav />
       </div>
-    </Router>
+    </Router >
   );
 }
 
