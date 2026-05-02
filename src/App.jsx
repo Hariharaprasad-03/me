@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import About from './components/About';
@@ -51,7 +51,7 @@ function App() {
   }, [isDark]);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-gray-700 dark:text-gray-300 transition-colors duration-500">
         {/* Theme toggle - floating button */}
         <button
